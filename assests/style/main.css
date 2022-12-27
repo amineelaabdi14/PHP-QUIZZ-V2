@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600&display=swap");
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0px;
+  background-color: #404258;
+}
+
+#index-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#php-logo {
+  width: 500px;
+}
+
+@media (max-width: 992px) {
+  #index-content {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#description {
+  color: rgb(226, 226, 226);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  width: 500px;
+  text-align: justify;
+  line-height: 2.9rem;
+  font-weight: medium;
+}
+
+#take-test {
+  background-color: #d4939d;
+  border: 0;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.35rem;
+  color: white;
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+#take-test:hover {
+  background-color: #404258;
+  color: white;
+  border: 2px solid #d4939d;
+}
+
+#take-test-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#question-container {
+  background-color: white;
+  border-radius: 6px;
+  height: 400px;
+  margin-top: 1rem;
+  width: 90vw;
+  margin: auto;
+  margin-top: 10px;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bolder;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#question-container span {
+  text-align: center;
+}
+
+#responses-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90vw;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.response {
+  background-color: black;
+  width: 20vw;
+  min-width: 230px;
+  color: white;
+  height: 140px;
+  border-radius: 6px;
+  background-color: #d4939d;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.response:hover {
+  background-color: #404258;
+  border: 3px solid #d4939d;
+  cursor: pointer;
+}
+
+#counter {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  width: 200px;
+  height: 40px;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+#counter span {
+  background-color: #1B2430;
+  border-radius: 6px;
+  height: 40px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.3rem;
+}
+
+#stepper-component {
+  margin: auto;
+  margin-top: 2rem;
+  width: 70vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.myIcon, .active-icon {
+  color: rgb(198, 198, 198);
+  font-size: 1.6rem;
+  font-family: "Font Awesome Free";
+}
+
+.active-icon {
+  color: #d4939d;
+}
+
+#progress-infos {
+  margin: auto;
+  margin-top: 2rem;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 60px;
+}
+
+@media (max-width: 550px) {
+  #progress-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 120px;
+  }
+}
+#progress-bar {
+  height: 20px;
+  width: 90vw;
+  border-radius: 1rem;
+  border: 3px solid #1B2430;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#inner-progress-bar {
+  border-radius: 0.3rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 22px;
+  width: 0%;
+  background-color: #1B2430;
+  transition: width 2s;
+}
+
+#first-responses, #second-responses {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 45vw;
+}
+
+@media (max-width: 1050px) {
+  #first-responses, #second-responses {
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+  }
+  .response {
+    width: 40vw;
+  }
+}
+@media (max-width: 600px) {
+  #responses-area {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  .response {
+    width: 90vw;
+  }
+}
+#result-content h1 {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 4rem;
+}
+
+#correct-answers, #avg-time, #false-answers {
+  border: 2px solid green;
+  background-color: rgba(0, 128, 0, 0.07);
+  border-radius: 0.3rem;
+  width: 200px;
+  height: 130px;
+  margin-left: 1rem;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#false-answers {
+  background-color: rgba(255, 0, 0, 0.07);
+  border-color: red;
+}
+
+#avg-time {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: white;
+}
+
+#stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}/*# sourceMappingURL=main.css.map */
