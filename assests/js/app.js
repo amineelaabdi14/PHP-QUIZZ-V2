@@ -1,9 +1,10 @@
 let currentQuestion=0;
-let timer=5;
+let timer=10;
 let myTimer;
 let correctAnswers=0;
 let falseAnswers=0;
-
+let avgTime=[];
+let averageResponse=0;
 function getData(){
     var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -13,6 +14,11 @@ function getData(){
         };
         xmlhttp.open("GET", "../controller/User.controller.php?getQuestions" , false);
         xmlhttp.send();
+        for(let i=questions.length-1;i>0;i--)
+        {   
+            let randIndex= Math.floor( Math.random()*questions.length);
+            [ questions[randIndex] , questions[i] ] = [ questions[i] , questions[randIndex] ];
+        }
         
 }
 getData();
@@ -28,7 +34,11 @@ function showQuestions(){
         currentQuestion++;
         startTimer();
     }else
-    console.log('done');
+    {
+        averageResponse=0;
+        avgTime.forEach(element => averageResponse+=element);
+        window.location.href='../controller/User.controller.php?correct='+correctAnswers+'&false='+falseAnswers+'&avg='+averageResponse/questions.length;
+    }
     
 }
 showQuestions();
@@ -44,25 +54,27 @@ function startTimer(){
     }    
     else {
         document.getElementById('inner-progress-bar').style.width=( currentQuestion*100 / questions.length)+'%';
+        avgTime.push(10);
         falseAnswers++;
-        timer=5;
+        timer=10;
         showQuestions();
     }
 }    
 
 
 function submitAnswer(answer){
-    console.log(questions[currentQuestion-1].anwer);
-    // document.getElementById('inner-progress-bar').style.width=( currentQuestion*100 / myUser.totalQuestions)+'%';
+    document.getElementById('inner-progress-bar').style.width=( currentQuestion*100 / questions.length)+'%';
+    avgTime.push(10-Number(document.getElementById('myTimer').innerText));
     if(answer.innerText==questions[currentQuestion-1].anwer)
-    {   console.log('gg');
-        timer=30;
+    {   
+        timer=10;
+        correctAnswers++;
         clearTimeout(myTimer);
         showQuestions();
     }
     else {
-        console.log('maloko');
-        timer=30;
+        timer=10;
+        falseAnswers++;
         clearTimeout(myTimer);
         showQuestions();
     }
