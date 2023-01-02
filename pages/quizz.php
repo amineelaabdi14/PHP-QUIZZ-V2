@@ -33,18 +33,18 @@
         <div id="responses-area">
 
             <div id="first-responses">
-                <div id="res1" class="response">
+                <div id="res1" class="response" onclick="submitAnswer(this)">
                     
                 </div>
-                <div id="res2" class="response" >
+                <div id="res2" class="response" onclick="submitAnswer(this)">
                     
                 </div>
             </div>
             <div id="second-responses">
-                <div id="res3" class="response">
+                <div id="res3" class="response" onclick="submitAnswer(this)">
                     
                 </div>
-                <div id="res4" class="response">
+                <div id="res4" class="response" onclick="submitAnswer(this)">
                     
                 </div>
             </div>
