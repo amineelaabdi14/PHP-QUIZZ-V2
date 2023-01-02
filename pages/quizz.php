@@ -1,3 +1,10 @@
+<?php 
+    require '../classes/User.classe.php';
+    $me=new User();
+    // echo "<pre>";
+    $me->getQuestions();
+    // echo "</pre>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
