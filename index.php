@@ -16,7 +16,7 @@
             <p>
                 PHP is an open-source server-side scripting language that many devs use for web development. It is also a general-purpose language that you can use to make lots of projects, including Graphical User Interfaces (GUIs).
             </p>
-            <a href="pages/quizz.html" id="take-test">Take Test</a>
+            <a href="pages/quizz.php" id="take-test">Take Test</a>
         </div>
     </section>
 </body>

@@ -1,3 +1,10 @@
+<?php 
+    require '../controller/User.controller.php';
+    // $me=new User();
+    // echo "<pre>";
+    // $me->getQuestions();
+    // echo "</pre>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +50,7 @@
             </div>
         </div>
     </div>
-    <script src="../assests/js/data.js"></script>
-    <script src="../classes/User.classe.js"></script>
+    <script src="../assests/js/questions.js"></script>
     <script src="../assests/js/app.js"></script>
     <script src="https://kit.fontawesome.com/6360d947ff.js" crossorigin="anonymous"></script>
 </body>
