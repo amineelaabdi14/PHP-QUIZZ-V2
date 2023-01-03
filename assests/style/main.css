@@ -256,4 +256,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#login-container {
+  background-color: #1B2430;
 }/*# sourceMappingURL=main.css.map */

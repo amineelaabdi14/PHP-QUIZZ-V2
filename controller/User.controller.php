@@ -5,6 +5,7 @@ session_start();
 //____ROUTING
 if ( isset($_GET['getQuestions'])) fetchQuestions();
 if ( isset($_GET['correct'])) setResult();
+if ( isset($_POST['login'])) login();
 
 
 
@@ -20,4 +21,10 @@ function setResult(){
     $_SESSION['false']=$_GET['false'];
     $_SESSION['avg']=$_GET['avg'];
     header ('Location: ../pages/result.php');
+}
+
+function login(){
+    $me=new User;
+    $me->login($_POST['username'],$_POST['password']);
+    // header ('Location: ../pages/index.php');
 }

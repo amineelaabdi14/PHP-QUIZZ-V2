@@ -34,5 +34,22 @@ class User{
         $stmt->execute(array(1,$correct,$false,$avg));
         Dbh::disconnect();
     }
+    public function login($username,$password){
+        $conn=Dbh::connect();
+        $sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array($username,$password));
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(count($user)>0){
+            echo 'here';
+        }
+        else {
+            $sql="INSERT INTO `user`( `username`, `password`, `ip_address`, `browser`, `os`) VALUES (?,?,null,null,null)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(array($username,$password));
+            echo 'here2';
+        }
+        Dbh::disconnect();
+    }
 }
 
