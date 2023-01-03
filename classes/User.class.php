@@ -27,8 +27,12 @@ class User{
         Dbh::disconnect();
         return json_encode($questions);
     }
-    public function insertScore(){
-        
+    public function insertScore($correct,$false,$avg){
+        $conn=Dbh::connect();
+        $sql = "INSERT INTO `score`(`id_user`, `correct_answers`, `incorrect_answers`, `avg_time`) VALUES (?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(1,$correct,$false,$avg));
+        Dbh::disconnect();
     }
 }
 

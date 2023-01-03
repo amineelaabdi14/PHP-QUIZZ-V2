@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,17 +23,17 @@
 
             <div id="correct-answers">
                 <p>Correct answer</p>
-                <span></span>
+                <span><?= $_SESSION['correct']?></span>
             </div>
 
             <div id="false-answers">
                 <p>False answer</p>
-                <span></span>
+                <span><?= $_SESSION['false']?></span>
             </div>
 
             <div id="avg-time">
                 <p>Avg response time</p>
-                <span></span>
+                <span><?= $_SESSION['avg']?></span>
             </div>
         </div>
         
