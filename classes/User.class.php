@@ -5,6 +5,10 @@ class User{
     protected $id;
     protected $password;
     
+public function __construct($username,$password){
+    $this->username=$username;
+    $this->password=$password;
+    }
     public function getQuestions(){
         $conn=Dbh::connect();
         $stmt = $conn->query("SELECT * FROM question");
@@ -34,20 +38,27 @@ class User{
         $stmt->execute(array(1,$correct,$false,$avg));
         Dbh::disconnect();
     }
-    public function login($username,$password){
+    public function login(){
+        $username=$this->username;
+        $password=$this->password;
         $conn=Dbh::connect();
-        $sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        $sql = "SELECT * FROM user WHERE username = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute(array($username,$password));
+        $stmt->execute(array($username));
         $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(count($user)>0){
-            echo 'here';
+            if($user[0]['password']==$password){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else {
             $sql="INSERT INTO `user`( `username`, `password`, `ip_address`, `browser`, `os`) VALUES (?,?,null,null,null)";
             $stmt = $conn->prepare($sql);
             $stmt->execute(array($username,$password));
-            echo 'here2';
+            return 'new';
         }
         Dbh::disconnect();
     }
